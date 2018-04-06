@@ -37,11 +37,22 @@
         <div class="logo"><a href="{{ route('public_home') }}"><img src="assets/images/logo.png"></a></div>
         <nav>
           <ul class="menu menu_header" id="menu">
+            @guest
             <li class="menu__item"><a href="#demos">Demos</a></li>
             <li class="menu__item"><a href="#headers">Headers</a></li>
             <li class="menu__item"><a href="#footers">Footers</a></li>
             <li class="menu__item"><a href="#blog">Blog</a></li>
             <li class="menu__item"><a href="#shop">Shop</a></li>
+            @else
+            <li class="menu__item"><a href="#demos">Demos</a></li>
+            <li class="menu__item"><a href="#headers">Headers</a></li>
+            <li class="menu__item"><a href="#footers">Footers</a></li>
+            <li class="menu__item"><a href="#blog">Blog</a></li>
+            <li class="menu__item"><a href="#shop">Shop</a></li>
+            @if(Auth::user()->role == 4)
+            <li class="menu__item"><a href="{{ route('private.dashboard') }}">Dashboard</a></li>
+            @endif
+            @endif
           </ul>
         </nav>
         @guest
@@ -62,9 +73,9 @@
     <footer class="page-footer bg_secondary" style="background-color: #487095;">
       <div class="container text_center color_white">
         <div class="title-sep title-sep_white"></div>
-        <h2>Become the Owner of</h2>
-        <h2 class="h1">JohnnyGo Multi-Skin Theme!</h2><a class="btn btn_md btn_primary" target="blank" href="https://www.templatemonster.com/cart.php?add=62555&price_variant=regular">Purchase now!</a>
-        <div class="copyright color_white">&#169; <span id="copyright-year"></span> Jetimpex, Inc and Web Templates Ltd. All Rights Reserved.</div>
+        <h2>Become the Owner of a</h2>
+        <h2 class="h1">Web Application!</h2><a class="btn btn_md btn_primary" target="blank" href="https://www.templatemonster.com/cart.php?add=62555&price_variant=regular">Purchase now!</a>
+        <div class="copyright color_white">&#169; <span id="copyright-year"></span> {{ config('app.name') }} group of companies Ltd. All Rights Reserved.</div>
       </div>
     </footer>
   </div>

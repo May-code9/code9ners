@@ -15,3 +15,7 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', ['as'=>'public_home', 'uses'=>'PublicController@index']);
+
+Route::group(['middleware'=>'superadmin'], function() {
+  Route::get('/dashboard', ['as'=>'private.dashboard', 'uses'=>'DashboardController@index']);
+});
