@@ -9,7 +9,7 @@
           <h1>We build websites</h1>
           <h2>for All Kinds of Services/Business!</h2>
           <h3>to any level of complexity</h3>
-          <p>Boost your bussiness with incredible functionality and efficient UI!</p>
+          <p>Boost your business with incredible functionality and efficient UI!</p>
           <a class="btn btn_md btn_secondary" href="#demos">Request a Quote</a>
         </div>
         <div class="col-lg-4"><img class="image_hero" src="assets/images/image-man-1.png"></div>
@@ -50,7 +50,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-4"><img class="image_cta" src="assets/images/image-man-2.png"></div>
         <div class="col-xs-12 col-md-8 color_white section_cta">
-          <h2>Invest in the Fututre of Your Bussiness!</h2>
+          <h2>Invest in the Fututre of Your Business!</h2>
           <p> Let us help you come online and take on the digital world professionally</p>
           <a class="btn btn_md btn_primary" target="blank" href="https://www.templatemonster.com/cart.php?add=62555&price_variant=regular">Request a Quote!</a>
         </div>
