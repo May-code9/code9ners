@@ -16,8 +16,8 @@ class CreateWebsiteFeaturesTable extends Migration
         Schema::create('website_features', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('website_category');
-            $table->string('website_cost');
+            $table->string('website_feature');
+            $table->string('feature_cost');
             $table->boolean('dynamic')->default(0);
             $table->SoftDeletes();
             $table->timestamps();

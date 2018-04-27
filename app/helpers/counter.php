@@ -2,6 +2,7 @@
 use App\WebsiteCategory;
 use App\Website;
 use App\User;
+use App\WebsiteFeature;
 
 function noSiteCategory()
 {
@@ -27,4 +28,14 @@ function noUser()
 {
   $countUser = User::count();
   return $countUser;
+}
+function noSiteFeature()
+{
+  $countFeature = WebsiteFeature::count();
+  return $countFeature;
+}
+function noTrashedSiteFeature()
+{
+  $countFeature = WebsiteFeature::onlyTrashed()->count();
+  return $countFeature;
 }

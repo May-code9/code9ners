@@ -10,7 +10,7 @@ class WebsiteFeature extends Model
   use SoftDeletes;
 
   protected $fillable = [
-    'user_id', 'website_category', 'dynamic', 'website_cost'
+    'user_id', 'website_feature', 'dynamic', 'feature_cost'
   ];
 
   public function setDynamicAttribute($value) {

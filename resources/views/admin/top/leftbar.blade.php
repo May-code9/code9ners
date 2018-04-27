@@ -41,6 +41,13 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('siteCategoryTrash.index') }}"><i class="fa fa-trash"></i>Trash</a> </li>
       </ul>
     </li>
+    <li class="nav-item"><a  href="javascript:void(0)" class="nav-link menudropdown">Site Features<i class="fa fa-angle-down "></i></a>
+      <ul class="nav flex-column nav-second-level">
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteFeature.create') }}"><i class="fa fa-edit"></i>Add</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteFeature.index') }}"><i class="fa fa-search"></i>View</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteFeatureTrash.index') }}"><i class="fa fa-trash"></i>Trash</a> </li>
+      </ul>
+    </li>
     <!-- <li class="nav-item"><a  href="#" class="nav-link">Teller</a></li> -->
     <li class="nav-item"><a  href="javascript:void(0)" class="nav-link menudropdown">Website<i class="fa fa-angle-down "></i></a>
       <ul class="nav flex-column nav-second-level">

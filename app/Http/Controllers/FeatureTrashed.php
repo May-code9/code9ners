@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\WebsiteFeature;
 
-class FeatureController extends Controller
+class FeatureTrashed extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,12 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $getFeatures = WebsiteFeature::join('users', 'users.id', '=', 'website_features.user_id')
-        ->select('website_features.id', 'name', 'website_feature', 'dynamic', 'feature_cost')
-        ->paginate(10);
+      $getFeatures = WebsiteFeature::join('users', 'users.id', '=', 'website_features.user_id')
+      ->onlyTrashed()
+      ->select('website_features.id', 'name', 'website_feature', 'dynamic', 'feature_cost')
+      ->paginate(10);
 
-        return view('admin.pages.siteFeature.view', compact('getFeatures'));
+      return view('admin.pages.siteFeature.trash.view', compact('getFeatures'));
     }
 
     /**
@@ -28,7 +29,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.siteFeature.add');
+        //
     }
 
     /**
@@ -39,8 +40,7 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
-      WebsiteFeature::create($request->all());
-      return redirect()->back()->with('success_status', 'Feature Added');
+        //
     }
 
     /**
@@ -62,8 +62,7 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
-      $getFeature = WebsiteFeature::findOrFail($id);
-      return view('admin.pages.siteFeature.edit', compact('getFeature'));
+        //
     }
 
     /**
@@ -75,9 +74,8 @@ class FeatureController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $name = $request->input('website_feature');
-      WebsiteFeature::findOrFail($id)->update($request->all());
-      return redirect('/siteFeature')->with('success_status', 'Feature with Id Number ' .$id. ' Updated Successfully to ' . $name);
+      WebsiteFeature::onlyTrashed()->findOrFail($id)->restore();
+      return redirect('/siteFeatureTrash')->with("success_status", "Feature with Id Number " .$id. " Successfully Restored");
     }
 
     /**
@@ -88,7 +86,7 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
-      WebsiteFeature::destroy($id);
-      return back()->with('failure_status', 'Feature with Id Number ' .$id. ' Successfully Moved to Trash');
+      WebsiteFeature::withTrashed()->findOrFail($id)->forceDelete();
+      return redirect('/siteFeatureTrash')->with("success_status", "Feature with Id Number " .$id. " Successfully Deleted");
     }
 }

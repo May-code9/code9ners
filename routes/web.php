@@ -24,4 +24,7 @@ Route::group(['middleware'=>'superadmin'], function() {
   Route::resource('siteCategoryTrash', 'WebsiteCategoryTrashed');
   Route::get('/edit Website Image/{id}', ['as'=>'edit.website.image', 'uses'=>'EditImagesController@website']);
   Route::post('/edit Website Image/{id}', ['as'=>'edit.website.image', 'uses'=>'EditImagesController@post_website']);
+
+  Route::resource('siteFeature', 'FeatureController');
+  Route::resource('siteFeatureTrash', 'FeatureTrashed');
 });
