@@ -34,12 +34,19 @@
         <li class="nav-item"><a class="nav-link" href="#">Contact Information</a> </li>
       </ul>
     </li>
+    <li class="nav-item"><a  href="javascript:void(0)" class="nav-link menudropdown">Site Category<i class="fa fa-angle-down "></i></a>
+      <ul class="nav flex-column nav-second-level">
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteCategory.create') }}"><i class="fa fa-edit"></i>Add</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteCategory.index') }}"><i class="fa fa-search"></i>View</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('siteCategoryTrash.index') }}"><i class="fa fa-trash"></i>Trash</a> </li>
+      </ul>
+    </li>
     <!-- <li class="nav-item"><a  href="#" class="nav-link">Teller</a></li> -->
     <li class="nav-item"><a  href="javascript:void(0)" class="nav-link menudropdown">Website<i class="fa fa-angle-down "></i></a>
       <ul class="nav flex-column nav-second-level">
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-edit"></i>Add</a> </li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i>View</a> </li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-trash"></i>Trash</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('website.create') }}"><i class="fa fa-edit"></i>Add</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('website.index') }}"><i class="fa fa-search"></i>View</a> </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('websiteTrash.index') }}"><i class="fa fa-trash"></i>Trash</a> </li>
       </ul>
     </li>
     <li class="nav-item"><a  href="javascript:void(0)" class="nav-link menudropdown">Video<i class="fa fa-angle-down "></i></a>

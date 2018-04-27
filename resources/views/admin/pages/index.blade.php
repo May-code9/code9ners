@@ -14,7 +14,7 @@
         <div class="activity-block success">
           <div class="media">
             <div class="media-body">
-              <h5> <span class="spincreament">...</span></h5>
+              <h5> <span class="spincreament">{{ noUser() }}</span></h5>
               <p>Subscribers</p>
             </div>
             <i class="fa fa-cubes"></i>
@@ -80,8 +80,8 @@
         <div class="activity-block primary">
           <div class="media">
             <div class="media-body">
-              <h5><span class="spincreament">...</span></h5>
-              <p>Tellers</p>
+              <h5><span class="spincreament">{{ noWebsite() }}</span></h5>
+              <p>Websites</p>
             </div>
             <i class="fa fa-dribbble"></i>
           </div>
@@ -104,8 +104,8 @@
         <div class="activity-block">
           <div class="media">
             <div class="media-body">
-              <h5><span class="spincreament">...</span></h5>
-              <p>Confirmed Subscribers</p>
+              <h5><span class="spincreament">{{ noSiteCategory() }}</span></h5>
+              <p>Website Category</p>
             </div>
             <i class="fa fa-dribbble"></i>
           </div>

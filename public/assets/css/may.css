@@ -5,3 +5,52 @@
     background-color: #a2893e;
     border-color: #a2893e;
 }
+@media (min-width: 768px) {
+  .push-1 {
+    left: 11.66666666666666%;
+  }
+}
+
+@media (min-width: 992px) {
+  .push-1 {
+    left: 11.66666666666666%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .push-1 {
+    left: 12.66666666666666%;
+  }
+}
+@media (min-width: 768px) {
+  .push-2 {
+    left: 20.66666666666666%;
+  }
+}
+
+@media (min-width: 992px) {
+  .push-2 {
+    left: 20.66666666666666%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .push-2 {
+    left: 24.66666666666666%;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+.inline {
+  float: left;
+  border: none;
+  padding:10px;
+  text-align:left;
+}
+.edit-color {
+  color: #436789;
+}

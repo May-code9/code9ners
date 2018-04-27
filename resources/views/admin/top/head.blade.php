@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{{asset('css/dark_blue_adminux.css')}}" type="text/css">
 
   <!-- May CSS -->
-  <link rel="stylesheet" href="{{asset('css/may.css')}}" type="text/css">
+  <link rel="stylesheet" href="{{asset('assets/css/may.css')}}" type="text/css">
 
   @if(Route::currentRouteName() == 'minstrelViewImages')
   <!-- Swipebox CSS -->

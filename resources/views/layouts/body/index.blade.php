@@ -21,27 +21,17 @@
       <h2 class="color_primary"><span class="h1 color_secondary">Check out</span> Amazing Websites, previously done!</h2>
       <p>Boost your business with incredible functionality and efficient UI!</p>
       <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-4"><a class="preview-box" href="wordpress_62555/3/connection/">
-          <div class="preview-box__image"><img src="assets/images/image-skin-3.png"></div>
+        @forelse($websites as $website)
+        <div class="col-xs-12 col-md-6 col-lg-4"><a class="preview-box" href="{{ $website->website_address }}" target="_blank">
+          <div class="preview-box__image"><img src="{{ asset('images/websites/' . $website->website_image) }}"></div>
           <div class="preview-box__overlay">
             <div class="btn btn_sm btn_secondary" href="#">Visit</div>
           </div></a>
-          <p class="color_primary">Home Connection</p>
+          <p class="color_primary">{{ $website->website_name }}</p>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-4"><a class="preview-box" href="wordpress_62555/3/welding-2/">
-          <div class="preview-box__image"><img src="assets/images/image-skin-14.png"></div>
-          <div class="preview-box__overlay">
-            <div class="btn btn_sm btn_secondary" href="#">Visit</div>
-          </div></a>
-          <p class="color_primary">Welding 2</p>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-4"><a class="preview-box" href="wordpress_62555/3/drycleaning/">
-          <div class="preview-box__image"><img src="assets/images/image-skin-15.png"></div>
-          <div class="preview-box__overlay">
-            <div class="btn btn_sm btn_secondary" href="#">Visit</div>
-          </div></a>
-          <p class="color_primary">Home Dry Cleaning</p>
-        </div>
+        @empty
+        <h2>No Website yet</h2>
+        @endforelse
       </div>
     </div>
   </section>
@@ -61,7 +51,7 @@
   <section id="footers">
     <div class="container text_center">
       <h2 class="color_primary">Diverse Footer Styles for Customization!</h2>
-      <p>With JohnnyGo theme you get 7 gorgeous header layouts and 3 eye-catching footer variations that’ll make your website look 100% winning!</p>
+      <p>With {{ config('app.name') }} theme you get 7 gorgeous header layouts and 3 eye-catching footer variations that’ll make your website look 100% winning!</p>
       <div class="row">
         <div class="col-xs-12 col-md-4">
           <a class="hover-box" href="#">
@@ -86,7 +76,7 @@
   <section class="bg_primary bg_pattern" id="blog" style="background-color: #293e51;">
     <div class="container text_center color_white">
       <h2><span class="h1 color_secondary">5</span>Gorgeous Blog Layouts!</h2>
-      <p>Deliver your ideas in a classy way using grid, masonry, justify and other glorious blog formats available in JohnnyGo theme!</p>
+      <p>Deliver your ideas in a classy way using grid, masonry, justify and other glorious blog formats available in {{ config('app.name') }} theme!</p>
       <div class="row">
         <div class="col-xs-12 col-md-4">
           <a class="hover-box" href="#">
@@ -135,7 +125,7 @@
         </div>
         <div class="col-xs-12 col-md-4"><img src="assets/images/image-article-3.png">
           <h3>A Set of Functional Pages Within Reach</h3>
-          <p>With JohnnyGo template you get Coming Soon, Maintenance, 404 and Search Results pages, fitted for all occasions!</p>
+          <p>With {{ config('app.name') }} template you get Coming Soon, Maintenance, 404 and Search Results pages, fitted for all occasions!</p>
         </div>
       </div>
     </div>

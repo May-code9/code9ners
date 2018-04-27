@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
       <div class="panel panel-default">
-        <div class="panel-heading">Register</div>
+        <div class="panel-heading">Request Quote</div>
 
         <div class="panel-body">
           <form class="form-horizontal" method="POST" action="{{ route('register') }}">
