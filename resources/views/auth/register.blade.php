@@ -83,7 +83,7 @@
               <label for="city" class="col-md-4 col-sm-12 control-label">City</label>
 
               <div class="col-md-6 col-sm-12">
-                <select id="city" name="city" type+"text" class="form-control" required>
+                <select id="city" name="city" type="text" class="form-control" required>
                   <option value=""> --Select-- </option>
                   @for($i = 0; $i < count(getCity()); $i++)
                   <option value="{{getCity()[$i]}}">{{getCity()[$i]}}</option>

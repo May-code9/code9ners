@@ -54,3 +54,6 @@ table {
 .edit-color {
   color: #436789;
 }
+.quote_btn:hover {
+  background-color: #436789;
+}

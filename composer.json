@@ -27,7 +27,8 @@
         },
         "files": [
           "app/helpers/geolocation.php",
-          "app/helpers/counter.php"
+          "app/helpers/counter.php",
+          "app/helpers/numbers.php"
         ]
     },
     "autoload-dev": {

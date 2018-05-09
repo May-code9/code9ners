@@ -3,124 +3,99 @@
 @section('content')
 <div class="container" style="padding-top:120px; padding-bottom:50px">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">Request Quote</div>
-
         <div class="panel-body">
-          <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+          <div class="col-md-6 col-sm-12">
+            <label class="col-md-8 col-sm-12 control-label">Would you like to select websites by Category?</label>
+            <button id="category" class="col-md-4 btn btn_sm btn_primary quote_btn">Category</button>
+          </div>
+
+          <div class="col-md-6 col-sm-12">
+            <label class="col-md-8 col-sm-12 control-label">Would you like to choose your website features?</label>
+            <button id="features" class="col-md-4 btn btn_sm btn_primary quote_btn">Features</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="showCat" class="panel panel-default" style="display: none">
+        <div class="panel-heading">Categories</div>
+        <div class="panel-body">
+          <form class="form-horizontal" method="POST" action="{{ route('public_quote') }}">
             {{ csrf_field() }}
 
+            @forelse($getCategories as $getCategory)
+            <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
+
+              <div class="col-md-6 col-sm-12">
+                <label for="name" class="col-md-6 col-sm-12 control-label" style="text-align: left">{{ $getCategory->website_category }}</label>
+                <input id="name" type="text" class="col-md-4 form-control" value="{{ $getCategory->website_cost }}" disabled />
+
+                <input id="name" type="radio" class="col-md-2 form-control" name="category_id" value="{{ $getCategory->id }}" />
+              </div>
+
+            </div>
+            @empty
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-              <label for="name" class="col-md-4 col-sm-12 control-label">Full Name</label>
+              <label for="name" class="col-md-4 col-sm-12 control-label">Empty</label>
 
               <div class="col-md-6 col-sm-12">
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                @if ($errors->has('name'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('name') }}</strong>
-                </span>
-                @endif
+                <input id="name" type="text" class="form-control" name="name" value="Empty" required>
               </div>
             </div>
+            @endforelse
 
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-4 col-sm-12 control-label">E-Mail</label>
-
-              <div class="col-md-6 col-sm-12">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                @if ($errors->has('email'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-              <label for="password" class="col-md-4 col-sm-12 control-label">Password</label>
-
-              <div class="col-md-6 col-sm-12">
-                <input id="password" type="password" class="form-control" name="password" required>
-
-                @if ($errors->has('password'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('password') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="password-confirm" class="col-md-4 col-sm-12 control-label">Confirm Password</label>
-
-              <div class="col-md-6 col-sm-12">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-              </div>
-            </div>
-
-            <div class="clear"><br/></div>
-
-            <legend>Your Contact/Address</legend>
-
-            <div class="form-group{{ $errors->has('phonenumber') ? ' has-error' : '' }}">
-              <label for="phonenumber" class="col-md-4 col-sm-12 control-label">Phone Number</label>
-
-              <div class="col-md-6 col-sm-12">
-                <input id="phonenumber" type="text" class="form-control" name="phonenumber" value="{{ old('phonenumber') }}" required>
-
-                @if ($errors->has('phonenumber'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('phonenumber') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-              <label for="city" class="col-md-4 col-sm-12 control-label">City</label>
-
-              <div class="col-md-6 col-sm-12">
-                <select id="city" name="city" type+"text" class="form-control" required>
-                  <option value=""> --Select-- </option>
-                  @for($i = 0; $i < count(getCity()); $i++)
-                  <option value="{{getCity()[$i]}}">{{getCity()[$i]}}</option>
-                  @endfor
-                </select>
-
-                @if ($errors->has('city'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('city') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-              <label for="state" class="col-md-4 col-sm-12 control-label">State</label>
-
-              <div class="col-md-6 col-sm-12">
-                <select id="state" name="state" type+"text" class="form-control" required>
-                  <option value=""> --Select-- </option>
-                  @for($i = 0; $i < count(getStates()); $i++)
-                  <option value="{{getStates()[$i]}}">{{getStates()[$i]}}</option>
-                  @endfor
-                </select>
-
-                @if ($errors->has('state'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('state') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-md-6 col-md-offset-4">
+            <div class="col-md-12">
+              <div class="pull-right" style="margin: 20px 10px">
                 <button type="submit" class="btn btn-primary btn_sm btn_secondary">
-                  Register
+                  Get Quote
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="showFea" class="panel panel-default" style="display: none">
+        <div class="panel-heading">Features</div>
+        <div class="panel-body">
+          <form class="form-horizontal" method="POST" action="{{ route('public_quote') }}">
+            {{ csrf_field() }}
+
+            @forelse($getFeatures as $getFeature)
+            <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
+
+              <div class="col-md-6 col-sm-12">
+                <label for="name" class="col-md-6 col-sm-12 control-label" style="text-align: left">{{ $getFeature->website_feature }}</label>
+                <input id="name" type="text" class="col-md-2 form-control" value="{{ $getFeature->feature_cost }}" disabled />
+                @if($getFeature->dynamic == 'Yes')
+                <select name="{{$getFeature->website_feature}}.1" class="col-md-2 form-control" style="margin-left: 5px; margin-right: -5px">
+                  <option value="">select</option>
+                  @for($i = 0; $i < count(countWebFeatNumber()); $i++)
+                  <option value="{{ countWebFeatNumber()[$i] }}">{{ countWebFeatNumber()[$i] }}</option>
+                  @endfor
+                </select>
+                @endif
+                <input id="name" type="checkbox" class="col-md-2 form-control" name="{{$getFeature->website_feature}}" value="{{ $getFeature->id }}" />
+              </div>
+
+            </div>
+            @empty
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+              <label for="name" class="col-md-4 col-sm-12 control-label">Empty</label>
+
+              <div class="col-md-6 col-sm-12">
+                <input id="name" type="text" class="form-control" name="name" value="Empty" >
+              </div>
+            </div>
+            @endforelse
+
+            <div class="col-md-12">
+              <div class="pull-right" style="margin: 20px 10px">
+                <button type="submit" class="btn btn-primary btn_sm btn_secondary">
+                  Get Quote
                 </button>
               </div>
             </div>

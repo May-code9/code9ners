@@ -10,7 +10,7 @@
           <h2>for All Kinds of Services/Business!</h2>
           <h3>to any level of complexity</h3>
           <p>Boost your business with incredible functionality and efficient UI!</p>
-          <a class="btn btn_md btn_secondary" href="#demos">Request a Quote</a>
+          <a class="btn btn_md btn_secondary" href="{{ route('public_quote') }}">Request a Quote</a>
         </div>
         <div class="col-lg-4"><img class="image_hero" src="assets/images/image-man-1.png"></div>
       </div>

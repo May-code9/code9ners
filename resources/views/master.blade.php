@@ -8,7 +8,7 @@
   <link rel="icon" href="wordpress_62555/handyman/wp-content/uploads/2017/05/cropped-fav-78x78.png" sizes="32x32" />
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/may.css">
-  @if(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
+  @if(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register' || Route::currentRouteName() == 'public_quote')
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   @endif
   <!-- CSRF Token -->
@@ -21,14 +21,16 @@
 </head>
 <body>
   <div class="page">
-    @if(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
+    @if(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register' || Route::currentRouteName() == 'public_quote')
     <header class="page-header isStuck" id="stuck_container" style="top: 0px; visibility: visible; position: fixed; width: 100%; margin-top: 0px;">
       <div class="container color_white">
         <div class="logo"><a href="{{ route('public_home') }}"><img src="assets/images/logo.png"></a></div>
         @if(Route::currentRouteName() == 'login')
         <a class="btn btn_sm btn_default" href="{{ route('register') }}">Register</a>
-        @else
+        @elseif(Route::currentRouteName() == 'register')
         <a class="btn btn_sm btn_default" href="{{ route('login') }}">Login</a>
+        @else
+        <a class="btn btn_sm btn_default" href="{{ route('public_home') }}">Home</a>
         @endif
       </a>
     @else
@@ -82,6 +84,21 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/tmstickup.js"></script>
   <script src="assets/js/scripts.js"></script>
+  <script>
+  $('#category').on('click', function() {
+    $('#showFea').fadeOut(500);
+    $('#showCat').toggle(2000);
+    $('#category').css({backgroundColor: '#928c8c', border: '1px solid #928c8c'});
+    $('#features').css({backgroundColor: '#1681e5', border: '1px solid #1681e5'});
+  })
+
+  $('#features').on('click', function() {
+    $('#showCat').fadeOut(500);
+    $('#showFea').toggle(2000);
+    $('#features').css({backgroundColor: '#928c8c', border: '1px solid #928c8c'});
+    $('#category').css({backgroundColor: '#1681e5', border: '1px solid #1681e5'});
+  })
+  </script>
 </body>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');</script><!-- End Google Tag Manager -->
